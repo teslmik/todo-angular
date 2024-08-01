@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 
 import { TodoService } from '../../services/todo.service';
 import { FilterPipe } from '../../pipes/filter.pipe';
-import { ITodo } from '../../interfaces/todo';
+import { TodoType } from '../../interfaces/todoEdited';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,7 +15,7 @@ import { ITodo } from '../../interfaces/todo';
 export class TodoListComponent {
   constructor(public todoService: TodoService) {}
 
-  submit(todo: ITodo, event?: KeyboardEvent) {
+  submit(todo: TodoType, event?: KeyboardEvent) {
     if(event && event.key !== 'Enter') {
       return
     }

@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
 import { ITodo } from '../interfaces/todo';
+import { TodoType } from '../interfaces/todoEdited';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  public todos: (ITodo & { edited: boolean })[] = [];
+  public todos: TodoType[] = [];
   public disabledCheckbox: boolean = false;
   public search: string = '';
   public completed: 'all' | 'complete' | 'incomplete' = 'all';
@@ -67,7 +68,7 @@ export class TodoService {
 
   update(todoId: number, text: string): void {
     this.http
-      .put(`https://dummyjson.com/todos/${todoId}`, { todo: text })
+      .put<ITodo>(`https://dummyjson.com/todos/${todoId}`, { todo: text })
       .subscribe(() =>
         this.todos.forEach((todo) => {
           if (todo.id === todoId) {

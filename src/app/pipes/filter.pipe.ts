@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { ITodo } from '../interfaces/todo';
+import { TodoType } from '../interfaces/todoEdited';
 
 @Pipe({
   name: 'filterTodos',
@@ -8,7 +8,7 @@ import { ITodo } from '../interfaces/todo';
 })
 export class FilterPipe implements PipeTransform {
   transform(
-    todos: (ITodo & { edited: boolean })[],
+    todos: TodoType[],
     search: string,
     completed: 'all' | 'complete' | 'incomplete' = 'all'
   ) {
