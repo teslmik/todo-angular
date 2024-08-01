@@ -12,7 +12,7 @@ export class FilterPipe implements PipeTransform {
     search: string,
     completed: 'all' | 'complete' | 'incomplete' = 'all'
   ) {
-    if (search.length === 0 && completed === 'all') {
+    if (search.trim().length === 0 && completed === 'all') {
       return todos;
     }
 
