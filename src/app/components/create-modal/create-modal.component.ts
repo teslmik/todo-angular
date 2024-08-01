@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModalConfig, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 import { TodoService } from '../../services/todo.service';
+import { FocusDirective } from '../../directives/focus.directive';
 
 @Component({
   selector: 'app-create-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, FocusDirective],
   templateUrl: './create-modal.component.html',
   styleUrl: './create-modal.component.scss',
   providers: [NgbModalConfig, NgbModal]

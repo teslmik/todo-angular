@@ -12,6 +12,7 @@
     <label for="createTodo" class="input-label">
       Todo text:
       <input
+        appFocus
         [value]="todoText"
         type="text"
         id="createTodo"
@@ -26,7 +27,7 @@
       class="btn btn-outline-secondary"
       (click)="createTodo()"
     >
-      Create
+      Create todo
     </button>
   </div>
 </ng-template>
