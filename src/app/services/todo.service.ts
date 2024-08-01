@@ -31,7 +31,9 @@ export class TodoService {
 
   toggleCheckbox(todoId: number, completed: boolean) {
     this.http
-      .put(`https://dummyjson.com/todos/${todoId}`, { completed: !completed })
+      .put<ITodo[]>(`https://dummyjson.com/todos/${todoId}`, {
+        completed: !completed,
+      })
       .subscribe(() =>
         this.todos.forEach((todo) => {
           if (todo.id === todoId) {
@@ -51,8 +53,8 @@ export class TodoService {
   }
 
   disableEdit(todoId: number, event?: KeyboardEvent) {
-    if(event && event.key !== 'Enter') {
-      return
+    if (event && event.key !== 'Enter') {
+      return;
     }
 
     this.todos.forEach((todo) => {
@@ -72,6 +74,19 @@ export class TodoService {
             todo.todo = text;
           }
         })
+      );
+  }
+
+  create(text: string) {
+    this.http
+      .post<ITodo>('https://dummyjson.com/todos/add', {
+        todo: text,
+        completed: false,
+        userId: 1,
+      })
+      .subscribe(
+        (newTodo) =>
+          (this.todos = [{ ...newTodo, edited: false }, ...this.todos])
       );
   }
 
