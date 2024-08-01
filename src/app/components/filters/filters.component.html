@@ -1,0 +1,27 @@
+<div class="search__container">
+  <input
+    id="typeahead-basic"
+    type="text"
+    class="form-control"
+    placeholder="Search note..."
+    [(ngModel)]="todoService.search"
+  />
+  <div ngbDropdown class="d-inline-block">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      id="dropdownBasic1"
+      ngbDropdownToggle
+    >
+    {{ todoService.completed }}
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem (click)="todoService.completed = 'all'">All</button>
+      <button ngbDropdownItem (click)="todoService.completed = 'complete'">Complete</button>
+      <button ngbDropdownItem (click)="todoService.completed = 'incomplete'">Incomplete</button>
+    </div>
+  </div>
+  <button type="button" class="btn btn-outline-primary moon-btn">
+    <img class="moon" src="/assets/moon.svg" alt="" />
+  </button>
+</div>

@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Kanit', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn.btn-outline-primary {
+  background-color: #6C63FF;
+  border: none;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 4px 0px rgba(88,80,221,1);
+  -moz-box-shadow: 0px 0px 4px 0px rgba(88,80,221,1);
+  box-shadow: 0px 0px 4px 0px rgba(88,80,221,1);
+  text-transform: uppercase;
+
+  &:hover,
+  &.show {
+    background-color: #5850DD;
+  }
+}
+
+.dropdown-menu.show {
+  border: 1px solid #6C63FF;
+  background-color: #F7F7F7;
+}
+
+.dropdown-item {
+  color: #6C63FF;
+
+  &:hover {
+    background-color: rgba(108, 99, 255, 0.25);
+    color: #6C63FF;
+  }
+}
+
+.form-check-input {
+  margin: 0;
+}
